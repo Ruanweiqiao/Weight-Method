@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智衡权重确定平台 - 厦门大学数据挖掘研究中心</title>
+  <link rel="stylesheet" href="home-style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="微信图片_20230714090909.jpg" alt="厦门大学数据挖掘研究中心" class="logo">
+          <div class="title-group">
+            <h1 class="main-title">智衡权重确定平台</h1>
+            <p class="subtitle">Intelligent Weight Determination Platform</p>
+            <p class="institution">大语言模型驱动的权重确定全流程解决方案</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2 class="hero-title">智能化权重确定解决方案</h2>
+        <p class="hero-description">
+          基于人工智能技术，为您的统计分析项目推荐最适合的权重计算方法。
+          简化复杂的权重确定过程，提升决策分析的科学性和准确性。
+        </p>
+      </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="modules">
+      <div class="modules-header">
+        <h3>平台功能模块</h3>
+        <p>一站式权重确定解决方案，涵盖从方法推荐到结果可视化的完整流程</p>
+      </div>
+      
+      <div class="modules-grid">
+        <!-- Module 1: Available -->
+        <div class="module-card available" onclick="navigateToQuestionnaire()">
+          <div class="module-header">
+            <div class="module-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="module-status available">可用</div>
+          </div>
+          <h4 class="module-title">权重方法推荐</h4>
+          <p class="module-description">
+            基于AI分析用户需求和数据特征，智能推荐最适合的权重计算方法。
+            支持AHP、熵权法、CRITIC法等9种主流方法。
+          </p>
+          <div class="module-features">
+            <span class="feature-tag">智能推荐</span>
+            <span class="feature-tag">多方法支持</span>
+            <span class="feature-tag">详细说明</span>
+          </div>
+          <div class="module-action">
+            <button class="btn-primary">立即使用</button>
+          </div>
+        </div>
+
+        <!-- Module 2: Coming Soon -->
+        <div class="module-card coming-soon">
+          <div class="module-header">
+            <div class="module-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="module-status beta">内测中</div>
+          </div>
+          <h4 class="module-title">权重计算</h4>
+          <p class="module-description">
+            根据推荐的方法，自动计算各指标权重值。
+            支持批量数据处理和多种数据格式输入。
+          </p>
+          <div class="module-features">
+            <span class="feature-tag">自动计算</span>
+            <span class="feature-tag">批量处理</span>
+            <span class="feature-tag">多格式支持</span>
+          </div>
+          <div class="module-action">
+            <button class="btn-secondary" disabled>敬请期待</button>
+          </div>
+        </div>
+
+        <!-- Module 3: Coming Soon -->
+        <div class="module-card coming-soon">
+          <div class="module-header">
+            <div class="module-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="module-status beta">内测中</div>
+          </div>
+          <h4 class="module-title">自定义方法计算</h4>
+          <p class="module-description">
+            支持用户自定义权重计算方法，满足特殊场景需求。
+            提供可视化编程界面，无需编程基础。
+          </p>
+          <div class="module-features">
+            <span class="feature-tag">自定义算法</span>
+            <span class="feature-tag">可视化编程</span>
+            <span class="feature-tag">灵活配置</span>
+          </div>
+          <div class="module-action">
+            <button class="btn-secondary" disabled>敬请期待</button>
+          </div>
+        </div>
+
+        <!-- Module 4: Coming Soon -->
+        <div class="module-card coming-soon">
+          <div class="module-header">
+            <div class="module-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="module-status beta">内测中</div>
+          </div>
+          <h4 class="module-title">结果解释与可视化</h4>
+          <p class="module-description">
+            生成权重计算结果的详细解释报告，提供多种可视化图表。
+            帮助理解权重分布和影响因素。
+          </p>
+          <div class="module-features">
+            <span class="feature-tag">智能解释</span>
+            <span class="feature-tag">多种图表</span>
+            <span class="feature-tag">报告导出</span>
+          </div>
+          <div class="module-action">
+            <button class="btn-secondary" disabled>敬请期待</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- Features Section -->
+  <section class="features">
+    <div class="features-content">
+      <h3>为什么选择智衡平台？</h3>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🤖</div>
+          <h4>AI智能推荐</h4>
+          <p>基于深度学习技术，智能分析用户需求，推荐最适合的权重方法</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎓</div>
+          <h4>学术权威</h4>
+          <p>厦门大学数据挖掘研究中心开发，确保方法的科学性和可靠性</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🚀</div>
+          <h4>简单易用</h4>
+          <p>直观的用户界面，无需专业知识，快速获得权重计算方案</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📈</div>
+          <h4>全面覆盖</h4>
+          <p>支持9种主流权重方法，覆盖各种应用场景和数据类型</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-content">
+        <div class="about-header">
+          <h3>关于厦门大学数据挖掘研究中心</h3>
+          <p class="about-subtitle">自2006年成立以来，致力于数据科学理论创新与实践应用</p>
+        </div>
+        
+        <div class="about-preview">
+          <div class="preview-stats">
+            <div class="stat-item">
+              <div class="stat-number">19+</div>
+              <div class="stat-label">年发展历程</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">150+</div>
+              <div class="stat-label">学术论文</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">师资力量</div>
+            </div>
+          </div>
+          
+          <div class="preview-text">
+            <p>厦门大学数据挖掘研究中心成立于2006年，2010年正式成立为校直属教学科研机构。中心充分发挥学科交叉优势，整合统计学、计量经济学、数量经济学、信息管理学等相关学科，是跨学科、综合型、开放式的教学研究机构。</p>
+            <div class="preview-action">
+              <a href="about.html" class="btn-about">了解更多 →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <div class="contact-content">
+        <h3>联系我们</h3>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <h4>问题反馈</h4>
+            <p><a href="mailto:dmrc@xmu.edu.cn">dmrc@xmu.edu.cn</a></p>
+            <p class="contact-desc">技术支持与问题反馈</p>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <h4>官方网站</h4>
+            <p><a href="https://xdmrc.org" target="_blank">xdmrc.org</a></p>
+            <p class="contact-desc">更多研究成果与学术资讯</p>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <h4>研究中心</h4>
+            <p>厦门大学思明校区</p>
+            <p class="contact-desc">福建省厦门市思明区</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 厦门大学数据挖掘研究中心. All rights reserved.</p>
+        <p>Xiamen University Data-Mining Research Center</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function navigateToQuestionnaire() {
+      window.location.href = 'index.html';
+    }
+
+    // Add smooth scroll behavior
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add hover effects to module cards
+      const moduleCards = document.querySelectorAll('.module-card');
+      moduleCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-8px)';
+        });
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Add fade-in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document.querySelectorAll('.module-card, .feature-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

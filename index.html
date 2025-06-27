@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智衡权重确定平台 - 权重方法推荐</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- MathJax for mathematical formulas -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-nav">
+        <a href="home.html" class="back-home">← 返回首页</a>
+      </div>
+      <div class="header-brand">
+        <img src="微信图片_20230714090909.jpg" alt="厦门大学数据挖掘研究中心" class="header-logo">
+        <div class="header-text">
+          <h1>智衡权重确定平台</h1>
+          <p class="subtitle">权重方法推荐模块</p>
+          <p class="institution-small">厦门大学数据挖掘研究中心</p>
+        </div>
+      </div>
+    </header>
+    
+    <div class="steps-container">
+      <div class="steps-indicator">
+        <div class="step-bullet active" data-step="1">1</div>
+        <div class="step-line"></div>
+        <div class="step-bullet" data-step="2">2</div>
+        <div class="step-line"></div>
+        <div class="step-bullet" data-step="3">3</div>
+        <div class="step-line"></div>
+        <div class="step-bullet" data-step="4">4</div>
+        <div class="step-line"></div>
+        <div class="step-bullet" data-step="5">5</div>
+      </div>
+      <div class="steps-labels">
+        <div class="step-label active" data-step="1">核心任务特征</div>
+        <div class="step-label" data-step="2">数据条件</div>
+        <div class="step-label" data-step="3">实施环境</div>
+        <div class="step-label" data-step="4">用户偏好</div>
+        <div class="step-label" data-step="5">查看结果</div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step active" id="step1">
+        <form id="questionnaireForm">
+          <!-- Step 1: 核心任务特征 -->
+          <div class="form-section active" id="section-1">
+            <div class="section-header">
+              <h2>
+                <span class="section-icon">🎯</span>
+                核心任务特征
+                <span class="section-badge">Task Core</span>
+              </h2>
+              <div class="step-progress">
+                <span class="current-step">第 1 步，共 4 步</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 25%;"></div>
+                </div>
+              </div>
+            </div>
+            <p class="section-description">定义您的权重确定任务的核心特征，包括问题类型、指标体系结构和精确度要求。</p>
+            
+            <!-- 问题类型与复杂度 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">🔍</span>
+                问题类型与复杂度
+              </h4>
+              
+              <div class="form-group">
+                <label>您的研究或评价项目属于哪个领域？</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="domain" value="环境/可持续发展"> 环境/可持续发展</label>
+                  <label><input type="radio" name="domain" value="经济/金融"> 经济/金融</label>
+                  <label><input type="radio" name="domain" value="产品/技术评估"> 产品/技术评估</label>
+                  <label><input type="radio" name="domain" value="政策/决策支持"> 政策/决策支持</label>
+                  <label><input type="radio" name="domain" value="医疗质量"> 医疗质量</label>
+                  <label><input type="radio" name="domain" value="社会/民生"> 社会/民生</label>
+                  <label><input type="radio" name="domain" value="其他"> 其他: <input type="text" name="domainOther"></label>
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <label>本次评价的主要目的是：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="purpose" value="对多个选项进行排序/筛选"> 对多个选项进行排序/筛选</label>
+                  <label><input type="radio" name="purpose" value="评估单一对象的综合表现"> 评估单一对象的综合表现</label>
+                  <label><input type="radio" name="purpose" value="建立预警或监测体系"> 建立预警或监测体系</label>
+                  <label><input type="radio" name="purpose" value="进行分类或分级"> 进行分类或分级</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>评价目标性质：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="evaluationNature" value="描述性"> 描述性（描述现状）</label>
+                  <label><input type="radio" name="evaluationNature" value="预测性"> 预测性（预测未来）</label>
+                  <label><input type="radio" name="evaluationNature" value="优化性"> 优化性（寻找最优解）</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>问题复杂度：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="complexity" value="低"> 低（指标少，关系简单）</label>
+                  <label><input type="radio" name="complexity" value="中"> 中（指标适中，关系较清晰）</label>
+                  <label><input type="radio" name="complexity" value="高"> 高（指标多，多属性交叉）</label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 指标体系结构 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">🏗️</span>
+                指标体系结构
+              </h4>
+              
+              <div class="form-group">
+                <label>您的指标体系结构是：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="structure" value="多层次"> 多层次结构 <input type="number" name="levels" placeholder="层级数" min="2" max="10"></label>
+                  <label><input type="radio" name="structure" value="单层"> 单层平行结构</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>指标之间的关系特点：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="relation" value="依赖"> 存在明显的相互依赖关系</label>
+                  <label><input type="radio" name="relation" value="独立"> 指标间基本独立</label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 精确度与稳定性要求 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">⚡</span>
+                精确度与稳定性要求
+              </h4>
+              
+              <div class="form-group">
+                <label>您对权重结果的精确度要求：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="precision" value="高"> 高（用于关键决策，需要高精确度）</label>
+                  <label><input type="radio" name="precision" value="中"> 中（用于一般分析，适中精确度）</label>
+                  <label><input type="radio" name="precision" value="低"> 低（用于初步参考，低精确度即可）</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>您能够承担的实践风险：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="riskTolerance" value="低"> 低（需要高稳定性，低误差）</label>
+                  <label><input type="radio" name="riskTolerance" value="中"> 中（可接受适度误差）</label>
+                  <label><input type="radio" name="riskTolerance" value="高"> 高（探索性研究，可接受较高不确定性）</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 2: 数据条件 -->
+          <div class="form-section" id="section-2" style="display: none;">
+            <div class="section-header">
+              <h2>
+                <span class="section-icon">📊</span>
+                数据条件
+                <span class="section-badge">Data Condition</span>
+              </h2>
+              <div class="step-progress">
+                <span class="current-step">第 2 步，共 4 步</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 50%;"></div>
+                </div>
+              </div>
+            </div>
+            <p class="section-description">提供您的数据情况和指标特征，帮助我们分析数据特性并推荐最适合的数据驱动方法。</p>
+            
+            <!-- 数据类型与质量 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">💾</span>
+                数据类型与质量
+              </h4>
+              
+              <div class="form-group">
+                <label>您目前已经收集的数据类型：（可多选）</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="dataType" value="原始指标数据" class="data-type-checkbox"> 原始指标数据</label>
+                  <div class="upload-container" id="upload-原始指标数据">
+                    <div class="upload-mini-area">
+                      <input type="file" class="data-file-input" data-type="原始指标数据" accept=".xlsx,.xls,.csv,.txt">
+                      <span class="upload-btn">选择文件</span>
+                      <span class="file-name-display">未选择文件</span>
+                    </div>
+                    <div class="file-description">
+                      <p>原始指标数据适用于熵权法、变异系数法、CRITIC法、主成分分析法等客观赋权方法</p>
+                    </div>
+                  </div>
+
+                  <label><input type="checkbox" name="dataType" value="专家对指标重要性的评分" class="data-type-checkbox"> 专家对指标重要性的评分</label>
+                  <div class="upload-container" id="upload-专家对指标重要性的评分" style="display:none; margin-left: 25px; margin-top: 10px;">
+                    <div class="upload-mini-area">
+                      <input type="file" class="data-file-input" data-type="专家对指标重要性的评分" accept=".xlsx,.xls,.csv,.txt">
+                      <span class="upload-btn">选择文件</span>
+                      <span class="file-name-display">未选择文件</span>
+                    </div>
+                    <div class="file-description">
+                      <p>专家评分数据适用于专家评估法、德尔菲法和直接赋权法等</p>
+                    </div>
+                  </div>
+
+                  <label><input type="checkbox" name="dataType" value="专家的成对比较判断" class="data-type-checkbox"> 专家的成对比较判断</label>
+                  <div class="upload-container" id="upload-专家的成对比较判断" style="display:none; margin-left: 25px; margin-top: 10px;">
+                    <div class="upload-mini-area">
+                      <input type="file" class="data-file-input" data-type="专家的成对比较判断" accept=".xlsx,.xls,.csv,.txt">
+                      <span class="upload-btn">选择文件</span>
+                      <span class="file-name-display">未选择文件</span>
+                    </div>
+                    <div class="file-description">
+                      <p>成对比较数据主要用于层次分析法（AHP）及其衍生方法</p>
+                    </div>
+                  </div>
+
+                  <label><input type="checkbox" name="dataType" value="其他特殊数据" class="data-type-checkbox"> 其他特殊数据</label>
+                  <div class="upload-container" id="upload-其他特殊数据" style="display:none; margin-left: 25px; margin-top: 10px;">
+                    <div class="upload-mini-area">
+                      <input type="file" class="data-file-input" data-type="其他特殊数据" accept=".xlsx,.xls,.csv,.txt">
+                      <span class="upload-btn">选择文件</span>
+                      <span class="file-name-display">未选择文件</span>
+                    </div>
+                    <div class="file-description">
+                      <p>如DEA法需要的多投入多产出数据、灰色关联法需要的参考序列等</p>
+                    </div>
+                  </div>
+
+                  <label><input type="checkbox" name="dataType" value="无已有数据" class="data-type-checkbox" id="no-data-checkbox"> 无已有数据</label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 样本量与指标数量 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">📏</span>
+                样本量与指标数量
+              </h4>
+              
+              <!-- 预计数据特征（当选择"无已有数据"时显示） -->
+              <div class="expected-data-section" id="expectedDataSection" style="display:none;">
+                <div class="expected-data-header">
+                  <h5>预计数据特征</h5>
+                  <p class="expected-note">无已有数据时，请提供您预计未来数据的特征</p>
+                </div>
+                
+                <div class="form-group">
+                  <label>您预计指标数量在：</label>
+                  <div class="radio-group">
+                    <label><input type="radio" name="indicatorCount" value="少"> 少量（10个以下）</label>
+                    <label><input type="radio" name="indicatorCount" value="中"> 中等（10-30个）</label>
+                    <label><input type="radio" name="indicatorCount" value="多"> 大量（30个以上）</label>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label>您的指标变量类型主要是：</label>
+                  <div class="radio-group">
+                    <label><input type="radio" name="variableType" value="定量"> 主要是定量指标</label>
+                    <label><input type="radio" name="variableType" value="定性"> 主要是定性指标</label>
+                    <label><input type="radio" name="variableType" value="混合"> 定量和定性指标混合</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 数据获取难易度 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">⚙️</span>
+                数据获取难易度
+              </h4>
+              
+              <div class="form-group">
+                <label>预计数据质量情况：</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="dataQualityIssues" value="缺失值"> 存在缺失值</label>
+                  <label><input type="checkbox" name="dataQualityIssues" value="异常值"> 存在异常值/极端值</label>
+                  <label><input type="checkbox" name="dataQualityIssues" value="分布不均"> 分布不均/偏态</label>
+                  <label><input type="checkbox" name="dataQualityIssues" value="样本量小"> 样本量较小</label>
+                  <label><input type="checkbox" name="dataQualityIssues" value="无问题"> 数据质量良好</label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 文件列表和预览区域 -->
+            <div class="files-section" id="filesSection">
+              <div class="files-header">
+                <h4>已上传文件</h4>
+              </div>
+              <ul id="fileList" class="file-list"></ul>
+              <div class="preview-area">
+                <h4>文件预览</h4>
+                <div class="preview-container"></div>
+              </div>
+              <div class="data-analysis-panel">
+                <h4>数据解析结果</h4>
+                <div id="dataAnalysisResults">
+                  <p class="analysis-message">上传数据后将自动识别指标和数据关系</p>
+                </div>
+                <div class="analysis-details">
+                  <div id="indicatorsInfo" class="analysis-info">
+                    <h5>识别出的指标</h5>
+                    <ul id="indicatorsList"></ul>
+                  </div>
+                  <div id="dataInfo" class="analysis-info">
+                    <h5>指标数据概要</h5>
+                    <div id="dataOverview"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 3: 实施环境 -->
+          <div class="form-section" id="section-3" style="display: none;">
+            <div class="section-header">
+              <h2>
+                <span class="section-icon">🌐</span>
+                实施环境
+                <span class="section-badge">Implementation Context</span>
+              </h2>
+              <div class="step-progress">
+                <span class="current-step">第 3 步，共 4 步</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+              </div>
+            </div>
+            <p class="section-description">评估您的可用资源状况和实施环境约束，包括专家资源、时间约束和应用场景等因素。</p>
+            
+            <!-- 资源约束 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">⏱️</span>
+                资源约束（时间、人力、计算）
+              </h4>
+              
+              <div class="form-group">
+                <label>您希望在多长时间内完成权重确定？</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="timeConstraint" value="快速"> 需要快速结果（1周内）</label>
+                  <label><input type="radio" name="timeConstraint" value="适中"> 适中时间（1-4周）</label>
+                  <label><input type="radio" name="timeConstraint" value="长期"> 可以长期进行（1个月以上）</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>计算资源限制：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="computingResource" value="有限"> 有限（基础计算设备）</label>
+                  <label><input type="radio" name="computingResource" value="充足"> 充足（可使用专业统计/数学软件）</label>
+                  <label><input type="radio" name="computingResource" value="高级"> 高级（可使用高性能计算资源）</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>实施环境约束：</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="environmentConstraints" value="预算限制"> 预算限制</label>
+                  <label><input type="checkbox" name="environmentConstraints" value="人力资源不足"> 人力资源不足</label>
+                  <label><input type="checkbox" name="environmentConstraints" value="数据获取困难"> 数据获取困难</label>
+                  <label><input type="checkbox" name="environmentConstraints" value="安全保密要求"> 安全保密要求</label>
+                  <label><input type="checkbox" name="environmentConstraints" value="其他"> 其他: <input type="text" name="environmentConstraintsOther"></label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 专家可用性 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">👥</span>
+                专家可用性
+              </h4>
+              
+              <div class="form-group">
+                <label>您是否有专家可以参与权重确定过程？</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="experts" value="充足"> 是，有充足专家资源 <input type="number" name="expertsCount" placeholder="人数" min="0"></label>
+                  <label><input type="radio" name="experts" value="有限"> 是，但专家数量有限 <input type="number" name="expertsLimitedCount" placeholder="人数" min="0"></label>
+                  <label><input type="radio" name="experts" value="无"> 否，难以邀请专家参与</label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 应用场景要求 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">🚀</span>
+                应用场景要求
+              </h4>
+              
+              <div class="form-group">
+                <label>权重结果将应用于：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="application" value="学术研究发表"> 学术研究发表</label>
+                  <label><input type="radio" name="application" value="组织内部决策"> 组织内部决策</label>
+                  <label><input type="radio" name="application" value="对外公开报告"> 对外公开报告</label>
+                  <label><input type="radio" name="application" value="其他"> 其他：<input type="text" name="applicationOther"></label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>结果应用范围：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="applicationScope" value="内部管理"> 内部管理决策</label>
+                  <label><input type="radio" name="applicationScope" value="外部报告"> 对外公开报告</label>
+                  <label><input type="radio" name="applicationScope" value="学术研究"> 学术研究发表</label>
+                  <label><input type="radio" name="applicationScope" value="监管合规"> 监管合规需求</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>是否有必须考虑的特殊需求或限制条件？</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="specialNeeds" value="是"> 是 <input type="text" name="specialNeedsText" placeholder="请说明"></label>
+                  <label><input type="radio" name="specialNeeds" value="否"> 否</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 4: 用户偏好 -->
+          <div class="form-section" id="section-4" style="display: none;">
+            <div class="section-header">
+              <h2>
+                <span class="section-icon">👤</span>
+                用户偏好
+                <span class="section-badge">User Preference</span>
+              </h2>
+              <div class="step-progress">
+                <span class="current-step">第 4 步，共 4 步</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <p class="section-description">了解您的专业背景和方法偏好，确保推荐的方法符合您的实际需求和使用习惯。</p>
+            
+            <!-- 方法偏好 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">⚖️</span>
+                方法偏好（主观/客观/混合）
+              </h4>
+              
+              <div class="form-group">
+                <label>您对主观/客观方法的认知偏好：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="methodPreference" value="主观"> 偏好主观方法（基于专家判断）</label>
+                  <label><input type="radio" name="methodPreference" value="客观"> 偏好客观方法（基于数据驱动）</label>
+                  <label><input type="radio" name="methodPreference" value="组合"> 偏好主客观结合方法</label>
+                  <label><input type="radio" name="methodPreference" value="无偏好"> 无特别偏好</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>您的权重方法知识水平：</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="knowledgeLevel" value="初级"> 初级（了解基本概念）</label>
+                  <label><input type="radio" name="knowledgeLevel" value="中级"> 中级（了解常用方法原理）</label>
+                  <label><input type="radio" name="knowledgeLevel" value="高级"> 高级（熟悉多种方法及应用）</label>
+                  <label><input type="radio" name="knowledgeLevel" value="专家"> 专家（深入研究权重方法）</label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 可解释性需求 -->
+            <div class="subsection">
+              <h4 class="subsection-title">
+                <span class="subsection-icon">💡</span>
+                可解释性需求
+              </h4>
+              
+              <div class="form-group">
+                <label>特殊需求：</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="specialRequirements" value="高可解释性"> 高可解释性（结果需要清晰解释）</label>
+                  <label><input type="checkbox" name="specialRequirements" value="算法开源"> 算法开源/透明</label>
+                  <label><input type="checkbox" name="specialRequirements" value="易于实现"> 易于实现/计算</label>
+                  <label><input type="checkbox" name="specialRequirements" value="结果可视化"> 结果可视化</label>
+                  <label><input type="checkbox" name="specialRequirements" value="其他"> 其他: <input type="text" name="specialRequirementsOther"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Navigation Controls -->
+          <div class="form-navigation">
+            <button type="button" id="prevBtn" class="btn btn-secondary" style="display: none;">上一步</button>
+            <div class="nav-spacer"></div>
+            <button type="button" id="nextBtn" class="btn btn-primary">下一步</button>
+            <button type="button" id="analyzeBtn" class="btn btn-primary" style="display: none;">分析并推荐</button>
+          </div>
+        </form>
+      </div>
+      
+      <div class="step" id="step2">
+        <h2>第二步：查看推荐结果</h2>
+        
+        <div id="loadingResults" class="loading-container">
+          <div class="loading-spinner"></div>
+          <div id="loadingStage" class="loading-stage">
+            <div id="stageIcon" class="stage-icon"></div>
+            <p id="loadingText">正在分析数据并生成推荐结果...</p>
+            <div class="analysis-stages">
+              <div class="analysis-stage active" id="stageUserNeeds">
+                <span class="stage-number">1</span>
+                <span class="stage-name">分析用户需求</span>
+              </div>
+              <div class="analysis-stage" id="stageDataFeatures">
+                <span class="stage-number">2</span>
+                <span class="stage-name">分析数据特征</span>
+              </div>
+              <div class="analysis-stage" id="stageRecommend">
+                <span class="stage-number">3</span>
+                <span class="stage-name">推荐权重方法</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="resultsContainer" class="results-container" style="display:none">
+          <!-- 推荐结果将在这里显示 -->
+        </div>
+        
+        <template id="recommendationTemplate">
+          <div class="recommendation-card">
+            <div class="recommendation-header">
+              <div class="method-name"></div>
+              <div class="suitability"><span class="suitability-badge"></span></div>
+            </div>
+            <div class="recommendation-body">
+              <div class="reason">
+                <h4>推荐理由</h4>
+                <p></p>
+              </div>
+              <div class="advantages">
+                <h4>方法优势</h4>
+                <ul></ul>
+              </div>
+              <!-- 新增四个维度匹配评分 -->
+              <div class="dimensional-score">
+                <h4>四维度匹配评分</h4>
+                <div class="dimension-scores-container">
+                  <div class="dimension-score-item">
+                    <div class="dimension-name">任务维度</div>
+                    <div class="dimension-score" id="taskFit"></div>
+                  </div>
+                  <div class="dimension-score-item">
+                    <div class="dimension-name">数据维度</div>
+                    <div class="dimension-score" id="dataFit"></div>
+                  </div>
+                  <div class="dimension-score-item">
+                    <div class="dimension-name">用户维度</div>
+                    <div class="dimension-score" id="userFit"></div>
+                  </div>
+                  <div class="dimension-score-item">
+                    <div class="dimension-name">环境维度</div>
+                    <div class="dimension-score" id="environmentFit"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="implementation">
+                <h4>实施建议</h4>
+                <p></p>
+              </div>
+            </div>
+            <div class="recommendation-footer">
+              <button class="btn btn-details">查看详细说明</button>
+            </div>
+          </div>
+        </template>
+        
+        <div id="methodDetails" class="method-details-modal">
+          <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="method-detail-title"></h3>
+            <div class="method-detail-content"></div>
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" id="backToStep1" class="btn btn-secondary">返回修改</button>
+          <button type="button" id="startOver" class="btn btn-primary">重新开始</button>
+          <button type="button" id="downloadReport" class="btn btn-success">下载报告</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="app.js" type="module"></script>
+</body>
+</html> 
